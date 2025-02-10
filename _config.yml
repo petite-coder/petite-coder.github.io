@@ -21,7 +21,7 @@ tagline: >
   성장하는 개발 기록 🚀
 
 
-hero_img: posts/20221229_150049.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
+hero_img: ./posts/20221229_150049.jpg # Main background image: use the path from /assets/img/ => This will output /assets/img/posts/sleek_lg.jpg
 
 email: lye0713@gmail.com # email for form submission
 
