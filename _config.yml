@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-title: "Development" # your site title
+title: "Develop" # your site title
 author: "Petite Coder" # You :P
 description: "성장하는 개발 기록" # Meta description of Homepage
 baseurl: "" # the subpath of your site, e.g. /blog
