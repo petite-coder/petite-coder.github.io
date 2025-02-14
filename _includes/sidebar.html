@@ -1,0 +1,23 @@
+<div class="sidebar">
+    <h3>카테고리</h3>
+    <ul class="category-list">
+        {% assign category_tree = "" %}
+        {% for post in site.posts %}
+            {% for category in post.categories %}
+                {% unless category_tree contains category %}
+                    {% assign category_tree = category_tree | append: "," | append: category %}
+                {% endunless %}
+            {% endfor %}
+        {% endfor %}
+        {% assign category_tree = category_tree | split: "," | sort %}
+
+        {% for category in category_tree %}
+            <li>
+                <a href="{{ site.baseurl }}/categories/#{{ category | slugify }}">
+                    {{ category }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+

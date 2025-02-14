@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-title: "Develop" # your site title
+title: "> Hello, World! _" # your site title
 author: "Petite Coder" # You :P
 description: "성장하는 개발 기록" # Meta description of Homepage
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -15,7 +15,6 @@ social:
 navigation: # Navigation links
   - {name: 'Home', link: '/'}
   - {name: 'About', link: '/about'}
-  - {name: 'Contact', link: '/contact'}
 
 tagline: >
   성장하는 개발 기록 🚀
