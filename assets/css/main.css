@@ -880,8 +880,30 @@ button:disabled :focus {
 
 .post-card__inner:focus,
 .post-card__inner:hover {
-    color: #838c8d;
     border-bottom: 0
+}
+
+.post-card__inner a {
+    text-decoration: none;
+    color: #838c8d;
+}
+
+.post-card__inner a:hover {
+    color: #838c8d;
+}
+
+.post-card__header h2 {
+    margin-top: 0rem;
+    transition: color 0.1s ease-in-out;
+}
+
+.post-card__header h2:hover {
+    color: #3f9ec0 !important;
+}
+
+.post-card__inner:hover .post-card__meta,
+.post-card__inner:hover p {
+    color: #838c8d !important;
 }
 
 .post-card__header {
@@ -934,8 +956,8 @@ button:disabled :focus {
 .label:focus,
 .label:hover {
     color: #fff;
-    background-color: #277cea;
-    border: 2px solid #277cea
+    background-color: #33b9bc;
+    border: 2px solid #33b9bc
 }
 
 .pagination {
