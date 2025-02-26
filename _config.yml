@@ -55,6 +55,8 @@ permalink: /:title/
 compress_html:
   clippings: all
 
+future: true
+
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
