@@ -1521,7 +1521,7 @@ table td {
     background: rgba(52, 56, 81, 0.8)
 }
 
-.hero__wrap {
+.hero__wrap[data-type="default"] {
     position: absolute;
     margin: auto;
     top: 50%;
@@ -1532,31 +1532,85 @@ table td {
     color: rgba(255, 255, 255, 0.8);
     width: 100%;
     max-width: 90%;
+    height: 28%;
     z-index: 1
 }
 
+.hero__wrap[data-type="post"] {
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    max-width: 70%;
+    height: 65%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 @media only screen and (min-width: 48em) {
-    .hero__wrap {
-        max-width: 40em
+    .hero__wrap[data-type="default"] {
+        max-width: 45em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero__wrap[data-type="post"] {
+        max-width: 45em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }
 
-.hero__wrap .hero__title {
-    font-size: 1.8em;
-    color: #fff
+.hero__wrap .hero__title[data-type="default"] {
+    font-size: 2em;
+    color: #fff;
+    margin-top: 0
+}
+
+.hero__wrap .hero__title[data-type="post"] {
+    font-size: 1.3em;
+    color: #fff;
+    margin-top: 0
 }
 
 @media only screen and (min-width: 48em) {
-    .hero__wrap .hero__title {
+    .hero__wrap .hero__title[data-type="default"] {
+        padding: 0 0;
+        font-size: 3em;
+        line-height: 2.5rem;
+        margin-top: 0;
+        margin-bottom: 2vh
+    }
+}
+
+@media only screen and (min-width: 48em) {
+    .hero__wrap .hero__title[data-type="post"] {
         padding: 0 0;
         font-size: 1.8em;
-        line-height: 3.125rem;
-        margin: 0
+        line-height: 2.5rem;
+        margin-top: 0
     }
 }
 
-p .hero--meta {
+p.hero__meta {
     margin-bottom: 1vh;
+    margin-top: 1vh;
+    font-size: smaller !important;
 }
 
 .page-content {
