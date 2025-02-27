@@ -5,6 +5,10 @@
 
   {% seo %}
 
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+
+
   <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/icons/new_fav_apple.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{'/assets/img/icons/new_fav32.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{'/assets/img/icons/new_fav16.png' | relative_url }}">

@@ -3,7 +3,7 @@ title: "> Hello, World! _" # your site title
 author: "Petite Coder" # You :P
 description: "성장하는 개발 기록" # Meta description of Homepage
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://petite-coder.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://petite-coder.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # SEO PLUGIN
 social:
