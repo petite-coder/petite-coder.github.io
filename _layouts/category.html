@@ -1,0 +1,16 @@
+---
+layout: page
+---
+
+<div class="hero__wrap" data-type="default"></div>
+  <h1 class="hero__title" data-type="default">{{ page.title }}</h1>
+</div>
+
+{% assign category_name = page.category %}
+{% for post in site.categories[category_name] %}
+  <article class="archive-item">
+    <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h4>
+  </article>
+{% endfor %}
+
+<script src="{{ site.baseurl }}/assets/js/dropdown.js"></script>

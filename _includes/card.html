@@ -3,7 +3,16 @@
     {% assign categories = post.categories %}
     <span class="post-card__label">
       {% for category in categories %}
-        <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="label"> {{ category }} </a>
+        {% assign category_name = category %}
+        {% assign category_slug = category | slugify %}
+
+        {% if category == "멋쟁이사자처럼" %}
+          {% assign category_name = "멋사" %}
+          {% assign category_slug = "lion" %}
+        {% endif %}
+        <a href="{{ site.baseurl }}/categories/{{ category_slug }}/" class="label">
+          {{ category_name }}
+        </a>
         {% unless forloop.last %}&nbsp;{% endunless %}
       {% endfor %}
     </span>

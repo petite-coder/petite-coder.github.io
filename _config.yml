@@ -14,7 +14,20 @@ social:
 # THEME SETTINGS
 navigation: # Navigation links
   - {name: 'Home', link: '/'}
+  - {name: 'Categories', link: '/categories', dropdown: true, subcategories:
+      [
+        {name: 'JAVA', link: '/categories/java'},
+        {name: '멋쟁이사자처럼', link: '/categories/lion'},
+        {name: 'Algorithm', dropdown: true, subcategories: 
+          [
+            {name: 'Techniques', link: '/categories/techniques'},
+            {name: 'Coding Test', link: '/categories/coding-test'}
+          ]
+        }
+      ]
+  }
   - {name: 'About', link: '/about'}
+
 
 tagline: >
   성장하는 개발 기록 🚀
@@ -49,13 +62,14 @@ exclude:
   - gulpfile.js
   - sleek.jpg
 
-include: ['_pages']
+include: ['_pages', '_categories']
 permalink: /:title/
 
 compress_html:
   clippings: all
 
 future: true
+
 
 plugins:
   - jekyll-sitemap

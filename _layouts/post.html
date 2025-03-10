@@ -33,7 +33,16 @@ layout: compress
             {% assign categories = page.categories %}
           {% endif %}
           {% for category in categories %}
-            <a class="label" href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+          {% assign category_name = category %}
+          {% assign category_slug = category | slugify %}
+
+          {% if category == "멋쟁이사자처럼" %}
+            {% assign category_name = "멋사" %}
+            {% assign category_slug = "lion" %}
+          {% endif %}
+          <a href="{{ site.baseurl }}/categories/{{ category_slug }}/" class="label">
+            {{ category_name }}
+          </a>
             {% unless forloop.last %}&nbsp;{% endunless %}
           {% endfor %}
         </div>
@@ -112,6 +121,7 @@ layout: compress
 
   {% include footer.html %}
   {% include mathjax.html %}
+  <script src="{{ site.baseurl }}/assets/js/dropdown.js"></script>
 </body>
 
 </html>

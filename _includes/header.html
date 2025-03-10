@@ -9,13 +9,55 @@
       <nav class="header__links">
         <div class="container header__links-wrapper">
           {% for item in site.navigation %}
-            <a class="header__link" href="{{ item.link | relative_url }}" itemprop="url">
-              <span itemprop="name">{{ item.name }}</span>
-            </a>
+            {% if item.dropdown %}
+              <div class="dropdown">
+                {% assign category_slug = item.name | slugify %}
+                {% if item.name == "멋쟁이사자처럼" %}
+                  {% assign category_slug = "lion" %}
+                {% endif %}
+                
+                <a href="{{ item.link | relative_url }}" class="dropbtn.cat" onclick="toggleDropdown('{{ item.name | slugify }}', this); return false;">
+                  {{ item.name }}
+                  <span class="arrow">&#9654;</span>
+                </a>
+                <ul class="dropdown-menu" id="{{ item.name | slugify }}">
+                  {% for sub in item.subcategories %}
+                    {% assign sub_slug = sub.name | slugify %}
+                    {% if sub.name == "멋쟁이사자처럼" %}
+                      {% assign sub_slug = "lion" %}
+                    {% endif %}
+                    
+                    {% if sub.dropdown %}
+                      <li class="dropdown-sub">
+                        <a href="#" class="sub-dropbtn" onclick="toggleDropdown('{{ sub.name | slugify }}', this); return false;">
+                          ♡‧₊˚ {{ sub.name }}
+                          <span class="arrow">&#9654;</span>
+                        </a>
+                        <ul class="sub-dropdown-menu" id="{{ sub.name | slugify }}">
+                          {% for subsub in sub.subcategories %}
+                            {% assign subsub_slug = subsub.name | slugify %}
+                            {% if subsub.name == "멋쟁이사자처럼" %}
+                              {% assign subsub_slug = "lion" %}
+                            {% endif %}
+                            
+                            <li><a href="{{ site.baseurl }}/categories/{{ subsub_slug }}/">♡‧₊˚ {{ subsub.name }}</a></li>
+                          {% endfor %}
+                        </ul>
+                      </li>
+                    {% else %}
+                      <li><a href="{{ site.baseurl }}/categories/{{ sub_slug }}/">♡‧₊˚ {{ sub.name }}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            {% else %}
+              <a class="header__link" href="{{ item.link | relative_url }}">{{ item.name }}</a>
+            {% endif %}
           {% endfor %}
         </div>
       </nav>
-      <div class="header__toggle">
+
+      <div class="header__toggle" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>

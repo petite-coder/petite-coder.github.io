@@ -348,7 +348,7 @@ h6 {
 }
 
 a {
-    color: #277cea;
+    color: #343851;
     text-decoration: none;
     -webkit-transition: all .2s linear;
     transition: all .2s linear;
@@ -360,10 +360,14 @@ a:focus {
     outline: 0
 }
 
-a:hover,
+a:hover{
+    color: #33b9bc;
+    border-bottom: 1px solid #33b9bc;
+}
+
 a:focus {
-    color: #68a4f1;
-    border-bottom: 1px solid #68a4f1
+    /* color: #33b9bc; */
+    border-bottom: 1px solid #33b9bc;
 }
 
 hr {
@@ -457,7 +461,7 @@ pre>code {
 
 .container {
     padding: 0 20px;
-    margin: 0 auto;
+    margin: 0 20px;
     max-width: 100%
 }
 
@@ -607,6 +611,21 @@ pre>code {
     border-top: 1px solid #ededed
 }
 
+@media (max-width: 61em){
+    /* About 기본 패딩 */
+    .header__link[href="/about"] {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: padding 0.3s ease-in-out;
+    }
+
+    /* 카테고리가 펼쳐졌을 때 About 패딩 증가 */
+    .header__links:has(.dropdown-menu.active) .header__link[href="/about"] {
+        padding: 0 0 .938rem 0; 
+    }
+}
+
+
 .header__toggle {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -674,6 +693,103 @@ pre>code {
     opacity: 1
 }
 
+.header__links-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;    
+    padding: 0
+}
+
+/* 상위 및 하위 카테고리 리스트 기본 설정 */
+.dropdown-menu, .sub-dropdown-menu {
+    max-height: 0; /* 기본적으로 높이를 0으로 설정하여 숨김 */
+    overflow: hidden;
+    list-style: none;
+    padding: 0; /* 🔹 내부 패딩 제거 */
+    margin: 0; /* 🔹 마진 제거 */
+    opacity: 0; /* 🔹 완전히 숨김 */
+    transition: max-height 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+/* 하위 카테고리 (li) 간 간격 조정 */
+.dropdown-menu li,
+.sub-dropdown-menu li {
+    margin: 7px 0; /* 하위 카테고리들 사이 간격 조정 */
+}
+
+/* 하위 카테고리 들여쓰기 */
+.sub-dropdown-menu {
+    padding-left: 15px; /* 들여쓰기 추가 */
+}
+
+/* 펼쳐질 때 표시 */
+.dropdown-menu.active, .sub-dropdown-menu.active {
+    display: block;
+    max-height: 500px; /* 충분한 높이로 설정하여 부드럽게 펼쳐짐 */
+    opacity: 1;
+    overflow: visible;
+    padding-left: 15px;
+}
+
+/* Algorithm과 About 간 간격이 지나치게 넓어지는 문제 해결 */
+.dropdown:last-child {
+    margin-bottom: 0; /* 마지막 드롭다운 요소의 여백 제거 */
+}
+
+.sub-dropdown-menu:last-child{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* 링크 스타일 수정 - 파란색 제거 */
+.dropbtn, .sub-dropbtn, .dropdown-menu a {
+    text-decoration: none;
+    color: #343851; 
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+}
+
+.dropbtn.cat {
+    padding-left: 0;
+    text-decoration: none;
+    color: #343851; /* 기존 텍스트 색상 유지 */
+    display: flex;
+    align-items: center;
+}
+
+/* 드롭다운 호버 시 색상 변경 */
+.dropbtn:hover, .sub-dropbtn:hover, .dropdown-menu:hover, .dropbtn.cat a:hover {
+    color: #33b9bc;
+}
+
+.dropdown-menu.active a:hover{
+    color: #33b9bc;
+}
+
+/* 드롭다운 클릭 시 포커스 스타일 유지 */
+.dropbtn:focus, .sub-dropbtn:focus, .dropdown-menu, .dropbtn.cat a:focus {
+    text-decoration: none;
+    color: #343851;
+}
+
+/* 화살표 정렬 */
+.arrow {
+    margin-left: 15px; /* 오른쪽 정렬 */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    padding: 0 10px;
+}
+
+/* 드롭다운이 열릴 때 화살표 변경 */
+.dropbtn.active .arrow, .sub-dropbtn.active .arrow {
+    transform: rotate(90deg); /* ▶ → ▼ */
+}
+
+/* 큰 화면 */
 @media (min-width: 62em) {
     .header__toggle {
         display: none;
@@ -700,6 +816,11 @@ pre>code {
         display: -ms-flexbox;
         display: flex;
         height: 100%;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: flex-start;
+        flex-shrink: 0; 
+        min-width: 270px;   
         padding: 0
     }
 
@@ -720,7 +841,7 @@ pre>code {
         width: 100%;
         -webkit-transform: scaleX(0);
         transform: scaleX(0);
-        background: #277cea;
+        background: #33b9bc;
         -webkit-transition: color 0.2s ease-in-out, -webkit-transform .2s ease-in-out;
         transition: color 0.2s ease-in-out, -webkit-transform .2s ease-in-out;
         transition: color 0.2s ease-in-out, transform .2s ease-in-out;
@@ -742,6 +863,146 @@ pre>code {
         transition: transform .2s ease-in-out;
         transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out
     }
+
+    .header__link[href="/categories"] {
+        padding: 10px 15px;
+        transition: none; /* 패딩 변화 방지 */
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        padding: 18px 15px;
+    }
+
+    .arrow {
+        display: none; /* 큰 화면에서는 화살표 숨김 */
+    }
+
+    /* 드롭다운 버튼도 클릭이 필요 없으므로 커서를 기본값으로 설정 */
+    .dropbtn {
+        cursor: default;
+    }
+
+    /* 기본적으로 드롭다운 메뉴를 숨김 */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        
+        background-color: white; /* 배경색 */
+        min-width: 300px;
+        z-index: 1000;
+        margin: 0;
+
+        opacity: 0;
+        /* transform: translateY(-10px); */
+        transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+
+        border: 1px solid #ccc; /* 회색 테두리 */
+        border-top: none; /* 윗부분 테두리 제거 */
+        border-radius: 0 0 5px 5px; /* 아래쪽 모서리 둥글게 */
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropbtn.cat {
+        text-decoration: none;
+        color: inherit; /* 기존 텍스트 색상 유지 */
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+    }
+
+    .dropbtn.cat :hover {
+        color: #0f4c9c
+    }
+
+    .dropbtn.cat:hover::after,
+    .dropbtn.cat :active::after,
+    .dropbtn.cat :focus::after {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+        color: #0f4c9c;
+        -webkit-transition: -webkit-transform .2s ease-in-out;
+        transition: -webkit-transform .2s ease-in-out;
+        transition: transform .2s ease-in-out;
+        transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out
+    }
+    
+    .dropdown:hover .dropdown-menu:hover,
+    .dropdown-menu:hover {
+        display: block; /* 하위 항목으로 이동해도 유지 */
+        opacity: 1;
+        /* transform: translateY(0); */
+    }
+
+    .dropdown-menu li {
+        border-bottom: 1px solid #ddd; /* 항목 사이에 구분선 추가 */
+        padding: 8px 12px;
+    }
+
+    .dropdown-sub .sub-dropbtn {
+        border-bottom: 1px solid #ddd;
+        padding: 8px 12px;
+        margin:7px 0;
+        margin-top: 0px;
+        padding-bottom: 16px;
+    }
+
+    .dropdown-sub #algorithm{
+        border-bottom: none; 
+    }
+
+    .sub-dropdown-menu :first-child {
+        margin-top: 0px;
+    }
+
+    /* .dropdown-sub li:last-child {
+        border-bottom: none; 
+    } */
+
+    /* .dropdown-menu .dropdown-sub li {
+        border-bottom: 1px solid #ddd; 
+    } */
+
+    /* Categories 메뉴에만 hover 시 밑줄 추가 */
+    .dropbtn.cat {
+        position: relative;
+        text-decoration: none;
+    }
+
+    .dropbtn.cat:hover {
+        color: #33b9bc;
+    }
+    .dropbtn.cat:hover::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #343851; /* 기존 홈, 어바웃과 동일한 색상 */
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+    }
+
+    .header__link, .dropbtn {
+        text-decoration: none;
+        color: #343851; /* 동일한 색상 적용 */
+        padding: 10px 15px;
+        transition: color 0.1s ease-in-out;
+    }
+
+    .header__link:hover, .dropbtn:hover {
+        color: #33b9bc; /* 기존 Home, About과 동일한 색상 */
+    }
+
+    .sub-dropdown-menu {
+        max-height: none; /* 🔹 항상 보이도록 변경 */
+        opacity: 1; /* 🔹 기본적으로 표시 */
+        display: block; /* 🔹 항상 화면에 표시 */
+        padding-left: 15px; /* 🔹 들여쓰기 유지 */
+    }
+
 }
 
 footer {
@@ -933,6 +1194,12 @@ button:disabled :focus {
     border-bottom: 0
 }
 
+.post-card__inner p {
+    text-decoration: none;
+    color: #838c8d;
+    font-size: 0.8em;
+}
+
 .post-card__inner a {
     text-decoration: none;
     color: #838c8d;
@@ -945,6 +1212,7 @@ button:disabled :focus {
 .post-card__header h2 {
     margin-top: 0rem;
     transition: color 0.1s ease-in-out;
+    font-size: 1.3em;
 }
 
 .post-card__header h2:hover {
@@ -1571,6 +1839,10 @@ table td {
     background: rgba(52, 56, 81, 0.8)
 }
 
+.hero--small .hero__wrap {
+    top: 40%;
+}
+
 .hero__wrap[data-type="default"] {
     position: absolute;
     margin: auto;
@@ -1638,6 +1910,11 @@ table td {
     margin-top: 0
 }
 
+.site__content .container .page-content .hero__title[data-type="default"] {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
 @media only screen and (min-width: 48em) {
     .hero__wrap .hero__title[data-type="default"] {
         padding: 0 0;
@@ -1645,7 +1922,7 @@ table td {
         line-height: 2.5rem;
         margin-top: 0;
         margin-bottom: 2vh
-    }
+    }       
 }
 
 @media only screen and (min-width: 48em) {
@@ -1665,13 +1942,13 @@ p.hero__meta {
 
 .page-content {
     max-width: 52.5rem;
-    margin: 0 auto;
-    padding: 2.5em 0
+    margin: 0 0;
+    padding: 1.8em 0 0 0
 }
 
 @media only screen and (min-width: 48em) {
     .page-content {
-        padding: 3.75rem 0
+        padding: 1.8em 0 0 0
     }
 }
 
