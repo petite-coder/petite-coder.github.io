@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+      - notion-connection-test
 
 permissions:
   contents: write
