@@ -521,7 +521,7 @@ pre>code {
     transition: transform .3s, background-color 0.5s ease, -webkit-transform .3s;
     -webkit-transform: translateY(0%);
     transform: translateY(0%);
-    height: var(--header-height);
+    height: auto;
 }
 
 .header a {
