@@ -351,8 +351,8 @@ a {
     color: #343851;
     text-decoration: none;
     -webkit-transition: all .2s linear;
-    transition: all .2s linear;
-    border-bottom: 1px dashed #277cea
+    transition: all .15s linear;
+    border-bottom: none;
 }
 
 a:active,
@@ -362,12 +362,10 @@ a:focus {
 
 a:hover{
     color: #33b9bc;
-    border-bottom: 1px solid #33b9bc;
 }
 
 a:focus {
     /* color: #33b9bc; */
-    border-bottom: 1px solid #33b9bc;
 }
 
 hr {
@@ -523,7 +521,7 @@ pre>code {
     transition: transform .3s, background-color 0.5s ease, -webkit-transform .3s;
     -webkit-transform: translateY(0%);
     transform: translateY(0%);
-    height: var(--header-height);
+    height: auto;
 }
 
 .header a {
@@ -1931,8 +1929,26 @@ table td {
 @media only screen and (min-width: 48em) {
     .hero__wrap .hero__title[data-type="post"] {
         padding: 0 0;
-        font-size: 1.8em;
+        font-size: 1.5em;
         line-height: 2.5rem;
+        margin-top: 0
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .hero__wrap .hero__title[data-type="post"] {
+        padding: 0 0;
+        font-size: 1em;
+        line-height: 1.5rem;
+        margin-top: 0
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .hero__wrap .hero__title[data-type="post"] {
+        padding: 0 0;
+        font-size: 0.8em;
+        line-height: 1.5rem;
         margin-top: 0
     }
 }
@@ -1988,6 +2004,30 @@ p.hero__meta {
         padding-top: 5em
     }
 }
+
+blockquote {
+    padding: 10px 20px;
+    margin: 20px 0;
+    color: #555;
+    border-left: 4px solid #b89eba;
+    border-radius: 5px;
+    padding: 25px;
+    background: #f0f8ff;
+  }
+
+  #til {
+    padding: 10px 20px;
+    margin: 20px 0;
+    color: #555;
+    border: 1.5px dashed #c7c7c7;
+    border-radius: 5px;
+    padding: 15px;
+    background: #f0f8ff;
+  }
+  
+  blockquote p {
+    margin: 0;
+  }
 
 .comments {
     padding: 50px 0;
