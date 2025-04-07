@@ -1,6 +1,6 @@
 ---
 layout: category
-title: Algorithm Techniques
+title: Techniques
 category: Techniques
-permalink: /categories/techniques/
+permalink: /categories/algorithm/techniques/
 ---

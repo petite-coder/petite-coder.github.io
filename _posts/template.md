@@ -31,14 +31,12 @@ date: 2025-03-04
 
 ---
 
-<details>
-    <summary style="font-weight:bold;color:gray;font-size:larger;">🎈 회고</summary>
-    <blockquote id="til">
-    <p> 자바의 구조, 접근제한자, static에 대해 들어본 적은 있지만 자세히 알지는 못했는데, 오늘 수업으로 정확한 개념을 이해하게 되었다.  
-특히 접근제한자와 static은 객체지향 프로그래밍을 하기 위한 중요한 부분이라고 생각해서 정확히 개념을 이해하고 외워야할 것 같다.  
-자바 OOP는 정처기에서도 공부했고 전공 수업때도 배워서 개념은 알고 있었지만 코드에 제대로 적용한 경험이 별로 없다. 앞으로 계속 연습하면서 객체지향적인 코드를 작성할 수 있도록 할 것이다.
- </p>
-    </blockquote>
+<details> 
+<summary style="font-weight:bold;color:gray;font-size:larger;"> 🎈 회고
+</summary>
+<blockquote id="til">
+<p> 여기에 회고 내용을 작성하세요.</p>
+</blockquote>
 </details>
 
 

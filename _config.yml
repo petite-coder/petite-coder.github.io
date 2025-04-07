@@ -18,10 +18,10 @@ navigation: # Navigation links
       [
         {name: 'JAVA', link: '/categories/java'},
         {name: '멋쟁이사자처럼', link: '/categories/lion'},
-        {name: 'Algorithm', dropdown: true, subcategories: 
+        {name: 'Algorithm', link: '/categories/algorithm', dropdown: true, subcategories: 
           [
-            {name: 'Techniques', link: '/categories/techniques'},
-            {name: 'Coding Test', link: '/categories/coding-test'}
+            {name: 'Techniques', link: '/categories/algorithm/techniques'},
+            {name: 'Coding Test', link: '/categories/algorithm/coding-test'}
           ]
         }
       ]
@@ -47,6 +47,11 @@ service_worker: true
 
 # BUILD SETTINGS
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  html_to_native: true
+  parse_block_html: true
 highlighter: rouge # or pygments or null
 # theme: jekyll-sleek # Uncomment if you're using the theme as a ruby gem
 exclude:
@@ -65,12 +70,17 @@ exclude:
 include: ['_pages', '_categories']
 permalink: /:title/
 
+toc: true
+toc_sticky: true  # ✅ TOC를 스크롤할 때 따라오도록 설정
+toc_label: "Table of Contents"  # TOC 제목
+toc_levels: [2,3,4]  # h2 ~ h4 태그만 포함
+  
 compress_html:
   clippings: all
 
 future: true
 
-
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-toc

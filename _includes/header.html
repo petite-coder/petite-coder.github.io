@@ -29,18 +29,14 @@
                     
                     {% if sub.dropdown %}
                       <li class="dropdown-sub">
-                        <a href="#" class="sub-dropbtn" onclick="toggleDropdown('{{ sub.name | slugify }}', this); return false;">
+                        <a href="{{ site.baseurl }}/categories/{{ sub_slug }}/" class="sub-dropbtn" onclick="toggleDropdown('{{ sub.name | slugify }}', this); return false;">
                           ♡‧₊˚ {{ sub.name }}
                           <span class="arrow">&#9654;</span>
                         </a>
                         <ul class="sub-dropdown-menu" id="{{ sub.name | slugify }}">
                           {% for subsub in sub.subcategories %}
-                            {% assign subsub_slug = subsub.name | slugify %}
-                            {% if subsub.name == "멋쟁이사자처럼" %}
-                              {% assign subsub_slug = "lion" %}
-                            {% endif %}
-                            
-                            <li><a href="{{ site.baseurl }}/categories/{{ subsub_slug }}/">♡‧₊˚ {{ subsub.name }}</a></li>
+                            {% assign subsub_slug = subsub.name | slugify %}                            
+                            <li><a href="{{ site.baseurl }}/categories/{{ sub_slug }}/{{ subsub_slug }}/">♡‧₊˚ {{ subsub.name }}</a></li>
                           {% endfor %}
                         </ul>
                       </li>
