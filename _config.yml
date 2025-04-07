@@ -18,10 +18,10 @@ navigation: # Navigation links
       [
         {name: 'JAVA', link: '/categories/java'},
         {name: '멋쟁이사자처럼', link: '/categories/lion'},
-        {name: 'Algorithm', dropdown: true, subcategories: 
+        {name: 'Algorithm', link: '/categories/algorithm', dropdown: true, subcategories: 
           [
-            {name: 'Techniques', link: '/categories/techniques'},
-            {name: 'Coding Test', link: '/categories/coding-test'}
+            {name: 'Techniques', link: '/categories/algorithm/techniques'},
+            {name: 'Coding Test', link: '/categories/algorithm/coding-test'}
           ]
         }
       ]

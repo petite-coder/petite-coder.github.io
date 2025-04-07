@@ -2,5 +2,5 @@
 layout: category
 title: Techniques
 category: Techniques
-permalink: /categories/techniques/
+permalink: /categories/algorithm/techniques/
 ---
