@@ -141,6 +141,184 @@ svg:not(:root) {
     overflow: hidden
 }
 
+   /* ✅ TOC 컨테이너 스타일 (화면 중앙 정렬) */
+.sidebar {
+    position: fixed;
+    top: 50%; /* ✅ 화면 세로 중앙 정렬 */
+    right: 20px;
+    width: 280px;
+    font-size: 14px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-50%); /* ✅ 화면 중앙 위치 조정 */
+  }
+  
+  /* ✅ TOC 제목 스타일 */
+  .sidebar h2 {
+    background: #c0c0d5;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  /* ✅ TOC 목록 스타일 */
+  .sidebar ul {
+    list-style: none;
+    /* padding-left: 10px; */
+    padding: 0px;
+    margin: 0;
+  }
+  
+  /* ✅ TOC 항목 스타일 */
+  .sidebar li {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+  /* ✅ TOC 링크 스타일 */
+  .sidebar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    display: block;
+    /* padding: 8px 10px 10px 20px; */
+    padding: 8px 0px 10px 0px;
+    padding-left: 0; /* ✅ 좌우 패딩 제거 */
+    padding-right: 0;
+    transition: 0.15s ease-in-out;
+    position: relative;
+    /* border-bottom: 1px solid #ddd; */
+  }
+
+  .sidebar .toc-entry a {
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;          
+    overflow-x: hidden;            
+    text-overflow: ellipsis; 
+    max-width: 100%;
+  }
+
+  .sidebar .toc-list > .toc-entry:last-of-type a:last-of-type {
+    border-bottom: none;
+  }
+  .toc-h2 {
+    text-indent: 15px;
+
+  }
+
+  .toc-h3 {
+    text-indent: 50px;
+
+  }
+
+  .toc-h4 {
+    text-indent: 80px;
+  }
+  
+  .sidebar a:hover {
+    border-radius: 3px;
+  }
+  
+
+  /* ✅ TOC 버튼 */
+.toc-toggle {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #c0c0d5;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 5px 5px 0px 0px;
+    cursor: pointer;
+    white-space: nowrap;
+    z-index: 1000;
+    text-align: left;
+  }
+  
+  @media screen and (min-width: 1460px) {
+    .post-toc .toc_list {  
+        /* padding-top: 5px;
+        padding-right: 10px;
+        padding-bottom: 10px; */
+        padding: 0px;
+
+    }
+  }
+
+  .post-toc {
+    display: none; /* ✅ 기본적으로 숨김 */
+  }
+
+  .toc-toggle {
+    display: block; /* ✅ 버튼 표시 */
+    position: sticky;
+      
+  }
+
+  .toc-toggle.expanded {
+      top: 0px;
+      width: 300px;
+    }
+
+  .sidebar {
+      width: 43px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-toc h2 {
+      display: none;
+    }
+
+  /* ✅ 버튼 클릭 시 TOC 표시 */
+.post-toc.active {
+  display: block;
+  position: fixed;
+  top: 33px; /* ✅ 버튼 아래 위치 */
+  /* right: 20px; */
+  width: 300px;
+  /* padding: 15px; */
+  padding: 0px;
+  border: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;;
+  border-top: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* max-height: 80vh; */
+  overflow-y: auto;
+  white-space: nowrap;
+  background-color: white;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.sidebar.expanded {
+  width: 315px;
+  height: 300px;
+  z-index: 3;
+  box-shadow:none;
+}
+
+.toc-text {
+  display: none;
+  margin-left: 5px; /* 아이콘과 간격 */
+}
+
+/* ✅ 버튼 클릭 시 TOC 텍스트 보이기 */
+.sidebar.expanded .toc-text {
+  display: inline;
+  font-weight: bold;
+}
+  
+
 button,
 input,
 optgroup,
@@ -239,8 +417,32 @@ menu {
     display: block
 }
 
+details {
+    margin-top: 1.5rem;
+}
+
 summary {
-    display: list-item
+    position: relative;
+    padding-left: 1.2em;
+    display: block;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+summary::before {
+    content: "";
+    position: absolute;
+    border-top: 0.5em solid transparent;
+    border-bottom: 0.5em solid transparent;
+    border-left: 0.75em solid #808080;
+    top: 0.4em;
+    left: 0;
+    transition: .25s transform;
+    font-size: smaller;
+}
+
+details[open] summary:before {
+    transform: rotateZ(90deg);
 }
 
 canvas {
@@ -622,7 +824,8 @@ pre>code {
 .header__link {
     color: #343851;
     padding: .938rem 0;
-    border-top: 1px solid #ededed
+    border-top: none;
+    /* border-top: 1px solid #ededed */
 }
 
 @media (max-width: 61em){
@@ -630,7 +833,7 @@ pre>code {
     .header__link[href="/about"] {
         padding-top: 10px;
         padding-bottom: 10px;
-        transition: padding 0.3s ease-in-out;
+        transition: padding 0.2s ease-in-out;
     }
 
     /* 카테고리가 펼쳐졌을 때 About 패딩 증가 */
@@ -974,13 +1177,13 @@ pre>code {
         margin-top: 0px;
     }
 
-    /* .dropdown-sub li:last-child {
+    .dropdown-sub li:last-child {
         border-bottom: none; 
-    } */
+    }
 
-    /* .dropdown-menu .dropdown-sub li {
+    .dropdown-menu .dropdown-sub li {
         border-bottom: 1px solid #ddd; 
-    } */
+    }
 
     /* Categories 메뉴에만 hover 시 밑줄 추가 */
     .dropbtn.cat {
@@ -1522,7 +1725,7 @@ table td {
 }
 
 .highlight .cm {
-    color: #999988;
+    color: #999999;
     font-style: italic
 }
 
@@ -1626,10 +1829,14 @@ table td {
     font-weight: normal
 }
 
-.highlight .k,
+
 .highlight .kv {
     color: #000000;
     font-weight: bold
+}
+
+.highlight .k {
+    color: #79458a;
 }
 
 .highlight .mf {
@@ -1728,7 +1935,7 @@ table td {
 }
 
 .highlight .nd {
-    color: #3c5d5d;
+    color: #999999;
     font-weight: bold
 }
 
@@ -2017,7 +2224,7 @@ p.hero__meta {
 
 @media only screen and (min-width: 48em) {
     .post-content {
-        padding-top: 5em
+        padding-top: 2em
     }
 }
 

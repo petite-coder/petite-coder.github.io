@@ -66,7 +66,20 @@ layout: compress
 
   <main class="site__content">
     <div class="container">
+      <div class="sidebar">
+        {% if page.toc %}
+          <button class="toc-toggle">
+          ☰ <span class="toc-text"></span>
+          </button>
+
+          <nav class="post-toc">
+            <h2>{{ site.toc_label | default: "Table of Contents" }}</h2>
+            {{ content | toc_only }}
+          </nav>
+        {% endif %}
+      </div>
       <article class="post-content" itemprop="articleBody">
+        
 
         {{ content }}
 
@@ -122,6 +135,8 @@ layout: compress
   {% include footer.html %}
   {% include mathjax.html %}
   <script src="{{ site.baseurl }}/assets/js/dropdown.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/toc-toggle.js"></script>
+
 </body>
 
 </html>
