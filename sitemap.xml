@@ -4,6 +4,19 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://petite-coder.github.io/lion07/</loc>
+        
+        <lastmod>2025-03-07T00:00:00+00:00</lastmod>
+        
+        
+        <changefreq>weekly</changefreq>
+        
+        
+        <priority>0.5</priority>
+        
+    </url>
+    
+    <url>
         <loc>https://petite-coder.github.io/lion06/</loc>
         
         <lastmod>2025-03-06T00:00:00+00:00</lastmod>
