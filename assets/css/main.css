@@ -121,14 +121,14 @@ img {
     width: 80%; 
     height: auto; 
     display: block; 
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .img-ver {
     width: 50%; 
     height: auto; 
     display: block; 
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .img-doub {
