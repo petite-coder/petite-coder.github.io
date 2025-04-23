@@ -642,12 +642,14 @@ code {
     background-color: rgb(237, 185, 147); color: white;
     font-family: "D2Coding";
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .code-or2 {
     background-color: rgb(249, 221, 199); color: rgb(248, 127, 28);
     font-family: "D2Coding";
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .code-bl {
@@ -655,6 +657,7 @@ code {
     color: rgb(40, 88, 133);
     font-family: "D2Coding";
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .code-vi {
@@ -662,6 +665,7 @@ code {
     color: rgb(168, 137, 240);
     font-family: "D2Coding";
     margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .code-java {
@@ -1747,7 +1751,8 @@ table {
     border-spacing: 0;
     border: 1px solid #ededed;
     border-radius: 4px;
-    font-size: 14.5px
+    font-size: 14.5px;
+    line-height: 2;
 }
 
 table th {
