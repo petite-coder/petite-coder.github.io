@@ -7,10 +7,6 @@
 
 {% linkmention https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html %}
 
-<code style="background-color: rgb(249, 221, 199); color: rgb(248, 127, 28); font-weight: bold">오렌지글씨</code>  
-<code style="background-color:#c7e4ff; color: rgb(40, 88, 133);">블루</code>
-<code style="background-color: rgb(237, 185, 147); color: white;">흰글씨</code>
-<code style="background-color: rgb(241, 241, 241); color: rgb(168, 137, 240);">보라글씨</code>
 
 <code class="code-or1">흰글씨</code>
 <code class="code-or2">오렌지글씨</code>
@@ -18,9 +14,20 @@
 <code class="code-vi">보라</code>
 <code class="code-java">Jαʋα</code>
 
+<pre><code class="language-java">
+</code></pre> 
+
 <img src="" class="img-hor">
 <img src="" class="img-ver">
 <img src="" class="img-doub">
+
+**반반**
+<div class="double-container" markdown="0">
+  <div class="double-block"> 
+  </div>
+  <div class="double-block">
+  </div> 
+</div>
 
 
 <blockquote>
@@ -29,6 +36,8 @@
 
 &nbsp;
 
+
+**표**
 | 우선순위 | 종류 | 연산자 | 결합 방향 |
 |:----:|:------:|:----:|:--:|
 | 1  | 최우선 연산자 | . [ ] ( ) | ➡️ |
@@ -56,6 +65,8 @@
   </tbody>
 </table>
 
+
+**토글**
 <details> 
 <summary style="font-weight:bold;color:gray;"> 토글 제목
 </summary>
